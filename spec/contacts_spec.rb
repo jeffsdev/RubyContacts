@@ -2,6 +2,7 @@ require('rspec')
 require('contact')
 require('mailing')
 require('phone')
+require('email')
 
 describe('Contact') do
   describe("#first_name, #last_name, #job_title, #company") do
@@ -11,6 +12,11 @@ describe('Contact') do
       expect(test_contact.last_name()).to(eq("Chadbro"))
       expect(test_contact.job_title()).to(eq("Salesman"))
       expect(test_contact.company()).to(eq("Jane's Car Shack"))
+    end
+  end
+  describe('.all') do
+    it('returns empty array') do
+    expect(Contact.all()).to(eq([]))
     end
   end
 end
@@ -34,6 +40,16 @@ describe('Phone') do
       expect(test_phone.type()).to(eq("Cell"))
       expect(test_phone.area_code()).to(eq("420"))
       expect(test_phone.number()).to(eq("4558008"))
+    end
+  end
+end
+
+describe('Email') do
+  describe("#type, #email_address") do
+    it('returns the email info') do
+      test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
+      expect(test_email.type()).to(eq("Personal"))
+      expect(test_email.email_address()).to(eq("nattyice4ev@bromail.com"))
     end
   end
 end
