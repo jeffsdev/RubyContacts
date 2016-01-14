@@ -1,6 +1,7 @@
 require('rspec')
 require('contact')
 require('mailing')
+require('phone')
 
 describe('Contact') do
   describe("#first_name, #last_name, #job_title, #company") do
@@ -22,6 +23,17 @@ describe('Mailing') do
       expect(test_mailing.city()).to(eq("Burns"))
       expect(test_mailing.state()).to(eq("Oregon"))
       expect(test_mailing.zip_code()).to(eq("80085"))
+    end
+  end
+end
+
+describe('Phone') do
+  describe("#type, #area_code, #number") do
+    it('returns the phone number info') do
+      test_phone = Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
+      expect(test_phone.type()).to(eq("Cell"))
+      expect(test_phone.area_code()).to(eq("420"))
+      expect(test_phone.number()).to(eq("4558008"))
     end
   end
 end
