@@ -31,6 +31,11 @@ describe('Mailing') do
       expect(test_mailing.zip_code()).to(eq("80085"))
     end
   end
+  describe('.all') do
+    it('returns empty array') do
+    expect(Mailing.all()).to(eq([]))
+    end
+  end
 end
 
 describe('Phone') do
@@ -42,6 +47,11 @@ describe('Phone') do
       expect(test_phone.number()).to(eq("4558008"))
     end
   end
+  describe('.all') do
+    it('returns empty array') do
+    expect(Phone.all()).to(eq([]))
+    end
+  end
 end
 
 describe('Email') do
@@ -50,6 +60,11 @@ describe('Email') do
       test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
       expect(test_email.type()).to(eq("Personal"))
       expect(test_email.email_address()).to(eq("nattyice4ev@bromail.com"))
+    end
+  end
+  describe('.all') do
+    it('returns empty array') do
+    expect(Email.all()).to(eq([]))
     end
   end
 end
