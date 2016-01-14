@@ -9,6 +9,10 @@ require('email')
     #
 
 describe('Contact') do
+  before() do
+    Contact.clear()
+  end
+
   describe("#first_name, #last_name, #job_title, #company") do
     it('returns the contact info') do
       test_contact = Contact.new({:first_name => "Bro", :last_name => "Chadbro", :job_title => "Salesman", :company => "Jane's Car Shack"})
@@ -65,6 +69,10 @@ end
     #
 
 describe('Mailing') do
+  before() do
+    Mailing.clear()
+  end
+
   describe("#address, #city, #state, #zip_code") do
     it('returns the mailing address info') do
       test_mailing = Mailing.new({:address => "420 SW Fort Wenty St. Apt.69", :city => "Burns", :state => "Oregon", :zip_code => "80085"})
@@ -121,6 +129,10 @@ end
     #
 
 describe('Phone') do
+  before() do
+    Phone.clear()
+  end
+
   describe("#type, #area_code, #number") do
     it('returns the phone number info') do
       test_phone = Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
@@ -176,6 +188,10 @@ end
     #
 
 describe('Email') do
+  before() do
+    Email.clear()
+  end
+
   describe("#type, #email_address") do
     it('returns the email info') do
       test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})

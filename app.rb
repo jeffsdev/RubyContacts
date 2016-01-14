@@ -9,3 +9,7 @@ also_reload('./lib/**/*.rb')
 get('/') do
   erb(:index)
 end
+
+get('/contact/new') do
+  erb(:contact_form)
+end
