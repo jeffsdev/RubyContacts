@@ -1,24 +1,24 @@
 <h1>Contact Form</h1>
 
-<form action="/contact/new">
+<form action="/contact/list" method="post">
   <div class="form-group">
     <label>First Name</label>
-    <input type="text" class="form-control" id="first_name" placeholder="First Name">
+    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
   </div>
 
   <div class="form-group">
     <label>Last Name</label>
-    <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
   </div>
 
   <div class="form-group">
     <label>Job Title</label>
-    <input type="text" class="form-control" id="job_title" placeholder="Job Title">
+    <input type="text" class="form-control" id="job_title" name="job_title" placeholder="Job Title">
   </div>
 
   <div class="form-group">
     <label>Company</label>
-    <input type="text" class="form-control" id="company" placeholder="Company">
+    <input type="text" class="form-control" id="company" name="company" placeholder="Company">
   </div>
 
   <button type="submit" class="btn btn-default">Submit</button>
