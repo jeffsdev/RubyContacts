@@ -14,12 +14,58 @@ describe('Contact') do
       expect(test_contact.company()).to(eq("Jane's Car Shack"))
     end
   end
+
   describe('.all') do
     it('returns empty array') do
     expect(Contact.all()).to(eq([]))
     end
   end
+
+  describe('#save') do
+    it('save information onto the empty array') do
+    test_contact = Contact.new({:first_name => "Bro", :last_name => "Chadbro", :job_title => "Salesman", :company => "Jane's Car Shack"})
+    test_contact.save
+    expect(Contact.all()).to(eq([test_contact]))
+    end
+  end
+
+  describe('.clear') do
+    it('empties out the array of contacts') do
+    Contact.new({:first_name => "Bro", :last_name => "Chadbro", :job_title => "Salesman", :company => "Jane's Car Shack"})
+    Contact.clear
+    expect(Contact.all()).to(eq([]))
+    end
+  end
+
+  describe('#id') do
+    it('ties an id to a specific contact') do
+    test_contact = Contact.new({:first_name => "Bro", :last_name => "Chadbro", :job_title => "Salesman", :company => "Jane's Car Shack"})
+    test_contact.id
+    expect(test_contact.id()).to(eq(1))
+    end
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 describe('Mailing') do
   describe("#address, #city, #state, #zip_code") do
