@@ -188,4 +188,37 @@ describe('Email') do
     expect(Email.all()).to(eq([]))
     end
   end
+  describe('#save') do
+    it('save information onto the empty array') do
+    test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
+    test_email.save
+    expect(Email.all()).to(eq([test_email]))
+    end
+  end
+
+  describe('.clear') do
+    it('empties out the array of email addresses') do
+    Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
+    Email.clear
+    expect(Email.all()).to(eq([]))
+    end
+  end
+
+  describe('#id') do
+    it('ties an id to a specific email address') do
+    test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
+    test_email.id
+    expect(test_email.id()).to(eq(1))
+    end
+  end
+
+  describe('.find') do
+    it('finds email address based on id number') do
+      test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
+      test_email.save
+      test_email2 = Email.new({:type => "Work", :email_address => "brollingrocks@bromail.com"})
+      test_email2.save
+      expect(Email.find(test_email.id())).to(eq(test_email))
+    end
+  end
 end
