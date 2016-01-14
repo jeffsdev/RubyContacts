@@ -1,0 +1,33 @@
+describe('#save') do
+  it('save information onto the empty array') do
+  test_phone = Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
+  test_phone.save
+  expect(Phone.all()).to(eq([test_phone]))
+  end
+end
+
+describe('.clear') do
+  it('empties out the array of phone numbers') do
+  Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
+  Phone.clear
+  expect(Phone.all()).to(eq([]))
+  end
+end
+
+describe('#id') do
+  it('ties an id to a specific phone number') do
+  test_phone = Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
+  test_phone.id
+  expect(test_phone.id()).to(eq(1))
+  end
+end
+
+describe('.find') do
+  it('finds phone number based on id number') do
+    test_phone = Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
+    test_phone.save
+    test_phone2 = Phone.new({:type => "Home", :area_code => "422", :number => "4206969"})
+    test_phone2.save
+    expect(Phone.find(test_phone.id())).to(eq(test_phone))
+  end
+end
