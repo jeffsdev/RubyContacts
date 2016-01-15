@@ -1,0 +1,21 @@
+<h1>Contact Info</h1>
+
+
+<h3>First Name, Last Name, Job, and Company</h3>
+<ul>
+  <li><%= @contact.first_name() %></li>
+  <li><%= @contact.last_name() %></li>
+  <li><%= @contact.job_title() %></li>
+  <li><%= @contact.company() %></li>
+</ul>
+
+<h3>Type, Email Address</h3>
+  <ul>
+    <% @contact.emails().each() do |email| %>
+    <li><%= email.type() %></li>
+    <li><%= email.email_address() %></li>
+    <% end %>
+  </ul>
+<ul>
+  <a href="/contact/<%= @contact.id() %>/email_form">Add Email</a>
+</ul>

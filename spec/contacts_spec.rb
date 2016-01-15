@@ -105,23 +105,6 @@ describe('Mailing') do
     end
   end
 
-  describe('#id') do
-    it('ties an id to a specific mailing') do
-    test_mailing = Mailing.new({:address => "420 SW Fort Wenty St. Apt.69", :city => "Burns", :state => "Oregon", :zip_code => "80085"})
-    test_mailing.id
-    expect(test_mailing.id()).to(eq(1))
-    end
-  end
-
-  describe('.find') do
-    it('finds mailing based on id number') do
-      test_mailing = Mailing.new({:address => "420 SW Fort Wenty St. Apt.69", :city => "Burns", :state => "Oregon", :zip_code => "80085"})
-      test_mailing.save
-      test_mailing2 = Mailing.new({:address => "422 SW Fort Wenty too St. Apt.70", :city => "Joseph", :state => "Oregon", :zip_code => "10075"})
-      test_mailing2.save
-      expect(Mailing.find(test_mailing.id())).to(eq(test_mailing))
-    end
-  end
 end
 
     #
@@ -163,24 +146,6 @@ describe('Phone') do
     expect(Phone.all()).to(eq([]))
     end
   end
-
-  describe('#id') do
-    it('ties an id to a specific phone number') do
-    test_phone = Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
-    test_phone.id
-    expect(test_phone.id()).to(eq(1))
-    end
-  end
-
-  describe('.find') do
-    it('finds phone number based on id number') do
-      test_phone = Phone.new({:type => "Cell", :area_code => "420", :number => "4558008"})
-      test_phone.save
-      test_phone2 = Phone.new({:type => "Home", :area_code => "422", :number => "4206969"})
-      test_phone2.save
-      expect(Phone.find(test_phone.id())).to(eq(test_phone))
-    end
-  end
 end
 
     #
@@ -217,24 +182,6 @@ describe('Email') do
     Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
     Email.clear
     expect(Email.all()).to(eq([]))
-    end
-  end
-
-  describe('#id') do
-    it('ties an id to a specific email address') do
-    test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
-    test_email.id
-    expect(test_email.id()).to(eq(1))
-    end
-  end
-
-  describe('.find') do
-    it('finds email address based on id number') do
-      test_email = Email.new({:type => "Personal", :email_address => "nattyice4ev@bromail.com"})
-      test_email.save
-      test_email2 = Email.new({:type => "Work", :email_address => "brollingrocks@bromail.com"})
-      test_email2.save
-      expect(Email.find(test_email.id())).to(eq(test_email))
     end
   end
 end

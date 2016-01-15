@@ -19,18 +19,4 @@ class Email
   define_singleton_method(:clear) do
     @@emails = []
   end
-
-  def id
-    @id
-  end
-
-  define_singleton_method(:find) do |identification|
-    found_item = nil
-    @@emails.each() do |item|
-      if item.id == identification.to_i
-        found_item = item
-      end
-    end
-    found_item
-  end
 end

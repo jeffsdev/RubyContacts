@@ -10,6 +10,7 @@ describe('contact page pathways', {:type => :feature}) do
     click_link("Add Contact")
     expect(page).to have_content("Contact Form")
   end
+
   it('posts name into contact_list') do
     visit('/')
     click_link("Add Contact")
@@ -21,4 +22,6 @@ describe('contact page pathways', {:type => :feature}) do
     visit('/contact/list')
     expect(page).to have_content("Brochadbro, Chad")
   end
+
+  
 end

@@ -31,3 +31,25 @@ post('/contact/list') do
   @contacts = Contact.all()
   erb(:success)
 end
+
+get('/contact/:id') do
+  @contact = Contact.find(params[:id])
+  erb(:contact)
+end
+
+get('/contact/:id/email_form') do
+  @contact = Contact.find(params[:id])
+  erb(:email_form)
+end
+
+post('/contact/:id/email_form') do
+  @contact = Contact.find(params[:id])
+  type = params.fetch('type')
+  email_address = params.fetch('email_address')
+  @emails = Email.new({:type => type,
+                       :email_address => email_address})
+  @emails.save()
+  @contact.emails().push(@emails)
+  @emails = Email.all()
+  erb(:success)
+end
